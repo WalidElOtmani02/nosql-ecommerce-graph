@@ -92,3 +92,15 @@ nosql-ecommerce-graph/
 
 ## How the Recommendation System Works
 The recommendation engine is implemented using Cypher and identifies products frequently bought together based on shared order. For a given product, the system finds all orders containing it and counts how often other products co-occur in the same baskets. Those with the highest co-purchase counts are then recommended.
+
+## Used Dataset and Sources
+This project uses the Brazilian E-Commerce Public Dataset published by Olit.
+<p>It contains real transactional data from a multi-vendor e-comm platform, including customers, orders, order items, payments, products, sellers, geolocation and reviews.</p>
+Source of dataset: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce?resource=download. It is provided foracademic purposes.
+<p>Modifications in the project:
+ <ul>
+ <li>Loaded Dataset into Neo4j Browser as nodes and relationships.</li>
+ <li>Added fictive product names and prices for demonstration purposes.</li>
+ <li>Limited to four product categories for the recommendation demo.</li>
+</ul>
+</p>
