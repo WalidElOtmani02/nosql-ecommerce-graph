@@ -79,7 +79,7 @@ nosql-ecommerce-graph/
 
 ## How to Run the Project:
 1. Start Neo4j with Docker: docker compose up -d
-2. Open Neo4j Browser: http://localhost:7474; Login: neo4j / password
+2. Open Neo4j Browser: http://localhost:7474; Login: "neo4j" / "password"git
 3. Run Cypher scripts in this order:
 <ol>
  <li>01_schema.cypher</li>
@@ -96,7 +96,7 @@ The recommendation engine is implemented using Cypher and identifies products fr
 ## Used Dataset and Sources
 This project uses the Brazilian E-Commerce Public Dataset published by Olit.
 <p>It contains real transactional data from a multi-vendor e-comm platform, including customers, orders, order items, payments, products, sellers, geolocation and reviews.</p>
-Source of dataset: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce?resource=download. It is provided foracademic purposes.
+Source of dataset: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce?resource=download. It is provided for academic purposes.
 <p>Modifications in the project:
  <ul>
  <li>Loaded Dataset into Neo4j Browser as nodes and relationships.</li>
