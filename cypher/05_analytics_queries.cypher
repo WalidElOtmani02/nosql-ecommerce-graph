@@ -46,7 +46,7 @@ RETURN segment, COUNT(*) AS customersInSegment
 ORDER BY customersInSegment DESC;
 
 // 8. Products often bought together with a given product (Check /notebooks/03_recommendation_system.ipynb for implementation)
-MATCH (p:Product {product_id: $productId})
+MATCH (p:Product {product_id: $productId}) // "b7d94dc0640c7025dc8e3b46b52d8239" product_id example
 MATCH (p)<-[:CONTAINS_PRODUCT]-(oi:OrderItem)
       <-[:HAS_ITEM]-(o:Order)
       -[:HAS_ITEM]->(otherOi:OrderItem)

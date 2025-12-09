@@ -1,13 +1,21 @@
 import streamlit as st
 from neo4j import GraphDatabase
 import pandas as pd
+import os
 
 # --- Neo4j connection setup ---
 URI = "bolt://localhost:7687"
 USER = "neo4j"
 PASSWORD = "password"
 
-driver = GraphDatabase.driver(URI, auth=(USER, PASSWORD))
+# inside streamlit_app.py
+driver = GraphDatabase.driver(
+    os.environ.get("NEO4J_URI", "bolt://neo4j:7687"),
+    auth=(
+        os.environ.get("NEO4J_USER", "neo4j"),
+        os.environ.get("NEO4J_PASSWORD", "password"),
+    ),
+)
 
 # --- Helper functions to query---
 
