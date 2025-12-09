@@ -79,7 +79,7 @@ nosql-ecommerce-graph/
 
 ## How to Run the Project:
 1. Start Neo4j with Docker: docker compose up -d
-2. Opeb Neo4j Browser: http://localhost:7474; Login: neo4j / password
+2. Open Neo4j Browser: http://localhost:7474; Login: neo4j / password
 3. Run Cypher scripts in this order:
 <ol>
  <li>01_schema.cypher</li>
@@ -88,7 +88,7 @@ nosql-ecommerce-graph/
  <li>04_demo_setup.cypher</li>
  <li>05_analytics_queries.cypher (optional, just for data exploration)</li>
  </ol>
-4. Start the streamlit app: streamlit run streamlit_app.py (Make sure you're in /app folder)
+4. After running streamlit_app.py, open the streamlit website under: http://localhost:8501
 
 ## How the Recommendation System Works
 The recommendation engine is implemented using Cypher and identifies products frequently bought together based on shared order. For a given product, the system finds all orders containing it and counts how often other products co-occur in the same baskets. Those with the highest co-purchase counts are then recommended.
