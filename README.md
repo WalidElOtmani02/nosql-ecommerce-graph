@@ -16,16 +16,26 @@ The goal is to import the data, model the nodes and relationships and build a pr
 ```
 nosql-ecommerce-graph/
 │
-├── cypher/                          # All Cypher scripts (schema, imports, analytics)
-│   ├── 01_schema.cypher             # Constraints and indexes
-│   ├── 02_import_nodes.cypher       # Node creation (CSV → Neo4j)
-│   ├── 03_import_relationships.cypher # Relationship creation
-│   ├── 04_demo_setup.cypher         # Demo category filtering & enrichment flags
-│   └── 05_analytics_queries.cypher  # Analytical queries used in the report
+├── app/
+│   ├── Dockerfile
+│   ├── requirements.txt 
+│   ├── streamlit_app.py
+│   
 │
-├── images/                          # Product images for Streamlit store
+├── cypher/
+│   ├── 01_schema.cypher
+│   ├── 02_import_nodes.cypher
+│   ├── 03_import_relationships.cypher
+│   ├── 04_demo_setup.cypher
+│   └── 05_analytics_queries.cypher
+│
+├── images/
 │   ├── aquariumset.jpg
 │   ├── basketball.jpg
+│   ├── boxinggloves.jpg
+│   ├── catpost.jpg
+│   ├── dogtoy.jpg
+│   ├── dumbellset.jpg
 │   ├── facemask.jpg
 │   ├── hairgrowth.jpg
 │   ├── harddrive.jpg
@@ -33,13 +43,20 @@ nosql-ecommerce-graph/
 │   ├── laptopstand.jpg
 │   ├── lipbalm.jpg
 │   ├── mouse.jpg
+│   ├── nirdaccessories.jpg
 │   ├── oilscollection.jpg
 │   ├── petbed.jpg
+│   ├── petset.jpg
+│   ├── resistancebands.jpg
+│   ├── serum.jpg
 │   ├── skincare.jpg
+│   ├── treadmill.jpg
 │   ├── usbc.jpg
+│   ├── webcam.jpg
 │   └── yogamat.jpg
+│   
 │
-├── import/                          # CSV dataset files (for Neo4j LOAD CSV)
+├── import/
 │   ├── olist_customers_dataset.csv
 │   ├── olist_geolocation_dataset.csv
 │   ├── olist_order_items_dataset.csv
@@ -50,14 +67,14 @@ nosql-ecommerce-graph/
 │   ├── olist_sellers_dataset.csv
 │   └── product_category_name_translation.csv
 │
-├── notebooks/                       # Jupyter notebooks (CRUD, enrichment, recommendations)
+├── notebooks/
 │   ├── 01_neo4j_crud.ipynb
 │   ├── 02_products_enrichment.ipynb
 │   └── 03_recommendation_system.ipynb
 │
-├── app.py                           # Streamlit E-commerce demo (Frontend + Recommendations)
-├── docker-compose.yml               # Local Neo4j instance (via Docker)
-└── README.md                        # Project documentation
+├── docker-compose.yml
+├── LICENSE
+└── README.md
 ```
 
 ## How to Run the Project:
@@ -69,9 +86,9 @@ nosql-ecommerce-graph/
  <li>02_import_nodes.cypher</li>
  <li>03_import_relationships.cypher</li>
  <li>04_demo_setup.cypher</li>
- <li>05_analytics_queries.cypher (optional, just for data explory)</li>
+ <li>05_analytics_queries.cypher (optional, just for data exploration)</li>
  </ol>
-4. Start the streamlit app: streamlit run app.py
+4. Start the streamlit app: streamlit run streamlit_app.py (Make sure you're in /app folder)
 
 ## How the Recommendation System Works
 The recommendation engine is implemented using Cypher and identifies products frequently bought together based on shared order. For a given product, the system finds all orders containing it and counts how often other products co-occur in the same baskets. Those with the highest co-purchase counts are then recommended.
